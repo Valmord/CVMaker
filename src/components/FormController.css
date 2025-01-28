@@ -1,7 +1,9 @@
 aside {
-  flex: 0 0 500px;
-  background-color: gray;
+  flex: 0 0 400px;
+  background-color: lightblue;
   min-height: 100vh;
+
+  border-right: black 2px solid;
 }
 
 form {
@@ -10,7 +12,8 @@ form {
 
 h1 {
   font-size: 1.6rem;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 input {
@@ -21,10 +24,20 @@ input {
 
 label {
   display: block;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .inputs {
   display: grid;
-  grid-template-columns: 80px 300px;
-  row-gap: 15px;
+  grid-template-columns: 130px 240px;
+  row-gap: 25px;
+}
+
+input {
+  background-color: white;
+  border: none;
+  border-radius: 0px;
+  border-bottom: solid 2px black;
+  padding: 2px 5px;
 }

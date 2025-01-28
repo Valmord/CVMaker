@@ -10,7 +10,6 @@ function Input({ type = "text", name, inputId }) {
 const GeneralInfoForm = function GeneralInfoForm() {
   return (
     <form>
-      <h1>Enter Your Details</h1>
       <div className="inputs">
         <Input name="Name: " inputId={"name"} />
         <Input name="Email: " type="email" inputId={"email"} />

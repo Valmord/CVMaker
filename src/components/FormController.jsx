@@ -1,18 +1,16 @@
 import { useState } from "react";
 import FormTabs from "./FormTabs";
-import GeneralInfoForm from "./GeneralInfoForm";
-import WorkForm from "./WorkExperienceForm";
-import EducationForm from "./EducationForm";
 import "./FormController.css";
+import DynamicFormController from "./DynamicFormController";
 
-const RenderForm = function RenderForm(currentTab) {
+const renderHeader = function renderHeader(currentTab) {
   switch (currentTab) {
     case "General":
-      return <GeneralInfoForm />;
+      return "Personal Details";
     case "Education":
-      return <EducationForm />;
+      return "Education Details";
     default:
-      return <WorkForm />;
+      return "Work Experiences";
   }
 };
 
@@ -22,7 +20,8 @@ const FormController = function FormController() {
   return (
     <aside>
       <FormTabs currentTab={currentTab} setTab={setCurrentTab} />
-      {RenderForm(currentTab)}
+      <h1>{renderHeader(currentTab)}</h1>
+      <DynamicFormController form={currentTab.toLowerCase()} />
     </aside>
   );
 };

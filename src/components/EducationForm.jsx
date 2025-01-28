@@ -10,11 +10,12 @@ function Input({ type = "text", name, inputId }) {
 const EducationForm = function EducationForm() {
   return (
     <form>
-      <h1>Enter Your Details</h1>
       <div className="inputs">
-        <Input name="Work: " inputId={"nameasd"} />
-        <Input name="Email: " type="email" inputId={"emailasdf"} />
-        <Input name="Phone Number: " type="tel" inputId={"phoneasdf"} />
+        <Input name="School: " inputId={"school"} />
+        <Input name="Degree: " inputId={"degree"} />
+        <Input name="Major: " inputId={"major"} />
+        <Input name="Start Date" type="date" inputId={"start-date"} />
+        <Input name="End Date" type="date" inputId={"end-date"} />
       </div>
     </form>
   );

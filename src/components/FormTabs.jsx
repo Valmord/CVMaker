@@ -1,7 +1,6 @@
 import "./FormTabs.css";
 
 const LinkTab = function ({ name, active, setTab }) {
-  console.log(name, active);
   return (
     <li>
       <button
@@ -21,7 +20,6 @@ const LinkTab = function ({ name, active, setTab }) {
 const tabs = ["General", "Education", "Work"];
 
 const FormTabs = function ({ currentTab, setTab }) {
-  console.log(currentTab);
   return (
     <nav className="tabs-container">
       <ul className="tabs">
