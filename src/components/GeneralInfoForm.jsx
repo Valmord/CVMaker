@@ -1,7 +1,3 @@
-import { useState } from "react";
-import "./App.css";
-import FormController from "./components/FormController";
-
 function Input({ type = "text", name, inputId }) {
   return (
     <>
@@ -11,7 +7,7 @@ function Input({ type = "text", name, inputId }) {
   );
 }
 
-function Form() {
+const GeneralInfoForm = function GeneralInfoForm() {
   return (
     <form>
       <h1>Enter Your Details</h1>
@@ -22,15 +18,6 @@ function Form() {
       </div>
     </form>
   );
-}
+};
 
-function App() {
-  return (
-    <>
-      <FormController />
-      <main>Some writing</main>
-    </>
-  );
-}
-
-export default App;
+export default GeneralInfoForm;

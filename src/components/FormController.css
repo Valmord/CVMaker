@@ -1,0 +1,30 @@
+aside {
+  flex: 0 0 500px;
+  background-color: gray;
+  min-height: 100vh;
+}
+
+form {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+input {
+  appearance: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 80px 300px;
+  row-gap: 15px;
+}
