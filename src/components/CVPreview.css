@@ -1,0 +1,58 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 728px 1fr;
+}
+
+main div {
+  flex: 1 1 0;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.cv {
+  background-color: white;
+  padding: 48px;
+}
+
+.name {
+  min-height: 32px;
+}
+
+.email {
+  min-height: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: red;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-style: italic;
+  margin-bottom: 5px;
+  color: rgb(30, 30, 30);
+}
+
+.cv-work-container,
+.cv-education-container {
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.cv section:nth-child(n + 2) {
+  margin-top: 20px;
+}
+
+.cv section > div {
+  & strong {
+    font-size: 1.2rem;
+  }
+
+  & p {
+    color: rgb(55, 55, 55);
+  }
+
+  & :nth-child(n + 2) {
+    margin-left: 15px;
+  }
+}

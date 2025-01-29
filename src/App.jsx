@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import FormController from "./components/FormController";
+import CVPreview from "./components/CVPreview";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -85,17 +86,6 @@ function App() {
     });
   };
 
-  // const updateWorkForm = function updateWorkForm(e) {
-  //   const [field, ...id] = e.target.id.split("-");
-  //   setWorkForms((prevForms) =>
-  //     prevForms.map((form) => {
-  //       return form.id === id.join("-")
-  //         ? { ...form, [field]: e.target.value }
-  //         : form;
-  //     })
-  //   );
-  // };
-
   return (
     <>
       <FormController
@@ -104,7 +94,7 @@ function App() {
         addWorkForm={addWorkForm}
         addEducationForm={addEducationForm}
       />
-      <main>Some writing</main>
+      <CVPreview formData={formData} />
     </>
   );
 }
