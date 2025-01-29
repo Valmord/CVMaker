@@ -18,6 +18,7 @@ const FormController = function FormController({
   formData,
   updateFormData,
   addWorkForm,
+  addEducationForm,
 }) {
   const [currentTab, setCurrentTab] = useState("General");
 
@@ -30,6 +31,7 @@ const FormController = function FormController({
         formData={formData}
         updateFormData={updateFormData}
         addWorkForm={addWorkForm}
+        addEducationForm={addEducationForm}
       />
     </aside>
   );

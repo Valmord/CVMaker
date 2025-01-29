@@ -68,14 +68,16 @@ input {
   border-radius: 20px;
 }
 
-button.addWorkForm {
+button.addWorkForm,
+button.addEducationForm {
   position: absolute;
   top: 56px;
   right: 40px;
   font-size: 2rem;
 }
 
-.addWorkForm:hover {
+.addWorkForm:hover,
+.addEducationForm:hover {
   color: red;
 }
 

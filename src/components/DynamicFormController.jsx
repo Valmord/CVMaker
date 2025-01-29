@@ -8,6 +8,7 @@ const DynamicFormController = function DynamicForm({
   formData,
   updateFormData,
   addWorkForm,
+  addEducationForm,
 }) {
   const [educationForms, setEducationForms] = useState([<EducationForm />]);
 
@@ -19,6 +20,10 @@ const DynamicFormController = function DynamicForm({
 
   const updateWorkForm = function updateWorkForm(e) {
     updateForm(e, "workExperience");
+  };
+
+  const updateEducationForm = function updateEducationForm(e) {
+    updateForm(e, "education");
   };
 
   const updateGeneralForm = function updateGeneralForm(e) {
@@ -45,6 +50,7 @@ const DynamicFormController = function DynamicForm({
         <GeneralInfoForm
           formData={formData.general[0]}
           setInfo={updateGeneralForm}
+          key={formData.general[0].key}
         />
       )}
 
@@ -80,10 +86,37 @@ const DynamicFormController = function DynamicForm({
         </>
       )}
 
-      {form === "education" &&
-        educationForms.map((educationForm) => {
-          return educationForm;
-        })}
+      {form === "education" && (
+        <>
+          <button className="addEducationForm" onClick={addEducationForm}>
+            +
+          </button>
+          {formData.education.map((educationForm, index) => {
+            return (
+              <div
+                className={`form-container ${
+                  formData.education.length > 1 ? "multiple" : ""
+                }`}
+                key={index}
+              >
+                <p className={educationForm.active ? "hidden" : ""}>
+                  {educationForm.school
+                    ? educationForm.school
+                    : `School ${index + 1}`}
+                  <button onClick={showIndividualForm}>▼</button>
+                </p>
+
+                <EducationForm
+                  education={educationForm}
+                  setEducation={updateEducationForm}
+                  key={educationForm.id}
+                  isActive={educationForm.active}
+                />
+              </div>
+            );
+          })}
+        </>
+      )}
     </>
   );
 };

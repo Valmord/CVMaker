@@ -15,7 +15,17 @@ function App() {
         active: true,
       },
     ],
-    education: [],
+    education: [
+      {
+        id: crypto.randomUUID(),
+        school: "",
+        degree: "",
+        major: "",
+        startDate: "",
+        endDate: "",
+        active: true,
+      },
+    ],
   });
 
   const updateFormData = function updateFormData(formType, id, field, value) {
@@ -52,6 +62,29 @@ function App() {
     });
   };
 
+  const addEducationForm = function addEducationForm() {
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        education: [
+          ...prevData.education.map((form) => ({
+            ...form,
+            active: false,
+          })),
+          {
+            id: crypto.randomUUID(),
+            school: "",
+            degree: "",
+            major: "",
+            startDate: "",
+            endDate: "",
+            active: true,
+          },
+        ],
+      };
+    });
+  };
+
   // const updateWorkForm = function updateWorkForm(e) {
   //   const [field, ...id] = e.target.id.split("-");
   //   setWorkForms((prevForms) =>
@@ -69,6 +102,7 @@ function App() {
         formData={formData}
         updateFormData={updateFormData}
         addWorkForm={addWorkForm}
+        addEducationForm={addEducationForm}
       />
       <main>Some writing</main>
     </>
