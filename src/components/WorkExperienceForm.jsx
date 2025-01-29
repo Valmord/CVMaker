@@ -9,54 +9,46 @@ function Input({ type = "text", name, inputId, value, onChange }) {
   );
 }
 
-const WorkForm = function WorkExperienceForm() {
-  const [experience, setExperience] = useState({
-    id: crypto.randomUUID(),
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-  });
-
-  const updateWorkExp = function updateWorkExperience(e) {
-    setExperience({ ...experience, [e.target.id]: e.target.value });
-    console.log(experience);
-  };
+const WorkForm = function WorkExperienceForm({
+  experience,
+  setExperience,
+  isActive,
+}) {
+  // const updateWorkExp = function updateWorkExperience(e) {
+  //   setExperience({ ...experience, [e.target.id]: e.target.value });
+  //   console.log(experience);
+  // };
 
   return (
-    <form>
+    <form className={!isActive ? "hidden" : ""}>
       <div className="inputs" key={experience.id}>
         <Input
-          name="Company: "
-          inputId={"company"}
+          name="Company"
+          inputId={`company-${experience.id}`}
           value={experience.company}
-          onChange={updateWorkExp}
+          onChange={setExperience}
         />
         <Input
-          name="Position: "
-          inputId={"position"}
+          name="Position"
+          inputId={`position-${experience.id}`}
           value={experience.position}
-          onChange={updateWorkExp}
+          onChange={setExperience}
         />
         <Input
-          name="Date Started: "
+          name="Date Started"
           type="date"
-          inputId={"startDate"}
+          inputId={`startDate-${experience.id}`}
           value={experience.startDate}
-          onChange={updateWorkExp}
+          onChange={setExperience}
         />
         <Input
-          name="Date Ended: "
+          name="Date Ended*"
           type="date"
-          inputId={"endDate"}
+          inputId={`endDate-${experience.id}`}
           value={experience.endDate}
-          onChange={updateWorkExp}
+          onChange={setExperience}
         />
-        <Input
-          name="Current Employment"
-          type="checkbox"
-          inputId={"currentEmployer"}
-        />
+        <div>*Don't change this if current job</div>
       </div>
     </form>
   );
