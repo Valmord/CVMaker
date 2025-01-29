@@ -4,7 +4,7 @@ import FormController from "./components/FormController";
 
 function App() {
   const [formData, setFormData] = useState({
-    general: [],
+    general: [{ id: crypto.randomUUID(), name: "", email: "", phone: "" }],
     workExperience: [
       {
         id: crypto.randomUUID(),

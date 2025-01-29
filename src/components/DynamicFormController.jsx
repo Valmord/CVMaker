@@ -11,10 +11,18 @@ const DynamicFormController = function DynamicForm({
 }) {
   const [educationForms, setEducationForms] = useState([<EducationForm />]);
 
-  const updateWorkForm = function updateWorkForm(e) {
+  const updateForm = function updateForm(e, formType) {
     const [field, ...splitId] = e.target.id.split("-");
     const id = splitId.join("-");
-    updateFormData("workExperience", id, field, e.target.value);
+    updateFormData(formType, id, field, e.target.value);
+  };
+
+  const updateWorkForm = function updateWorkForm(e) {
+    updateForm(e, "workExperience");
+  };
+
+  const updateGeneralForm = function updateGeneralForm(e) {
+    updateForm(e, "general");
   };
 
   const showIndividualForm = function showIndividualForm(e) {
@@ -33,7 +41,12 @@ const DynamicFormController = function DynamicForm({
 
   return (
     <>
-      {form === "general" && <GeneralInfoForm />}
+      {form === "general" && (
+        <GeneralInfoForm
+          formData={formData.general[0]}
+          setInfo={updateGeneralForm}
+        />
+      )}
 
       {form === "work" && (
         <>

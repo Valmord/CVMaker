@@ -78,3 +78,7 @@ button.addWorkForm {
 .addWorkForm:hover {
   color: red;
 }
+
+input:user-invalid {
+  background-color: pink;
+}

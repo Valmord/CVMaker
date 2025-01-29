@@ -1,11 +1,4 @@
-function Input({ type = "text", name, inputId }) {
-  return (
-    <>
-      <label htmlFor={inputId}>{name}</label>
-      <input type={type} id={inputId} />
-    </>
-  );
-}
+import Input from "../utils/helpers";
 
 const EducationForm = function EducationForm() {
   return (

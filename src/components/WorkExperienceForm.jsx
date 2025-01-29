@@ -1,13 +1,5 @@
 import { useState } from "react";
-
-function Input({ type = "text", name, inputId, value, onChange }) {
-  return (
-    <>
-      <label htmlFor={inputId}>{name}</label>
-      <input type={type} id={inputId} value={value} onChange={onChange} />
-    </>
-  );
-}
+import Input from "../utils/helpers";
 
 const WorkForm = function WorkExperienceForm({
   experience,
