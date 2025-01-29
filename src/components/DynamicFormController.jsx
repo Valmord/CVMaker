@@ -3,43 +3,18 @@ import WorkForm from "./WorkExperienceForm";
 import EducationForm from "./EducationForm";
 import GeneralInfoForm from "./GeneralInfoForm";
 
-const DynamicFormController = function DynamicForm({ form }) {
-  const [workForms, setWorkForms] = useState([
-    {
-      id: crypto.randomUUID(),
-      company: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-      active: true,
-    },
-  ]);
+const DynamicFormController = function DynamicForm({
+  form,
+  formData,
+  updateFormData,
+  addWorkForm,
+}) {
   const [educationForms, setEducationForms] = useState([<EducationForm />]);
 
-  const addWorkForm = function addWorkForm() {
-    const newWorkForms = [
-      ...workForms.map((form) => ({ ...form, active: false })),
-      {
-        id: crypto.randomUUID(),
-        company: "",
-        position: "",
-        startDate: "",
-        endDate: "",
-        active: true,
-      },
-    ];
-    setWorkForms(newWorkForms);
-  };
-
   const updateWorkForm = function updateWorkForm(e) {
-    const [field, ...id] = e.target.id.split("-");
-    setWorkForms((prevForms) =>
-      prevForms.map((form) => {
-        return form.id === id.join("-")
-          ? { ...form, [field]: e.target.value }
-          : form;
-      })
-    );
+    const [field, ...splitId] = e.target.id.split("-");
+    const id = splitId.join("-");
+    updateFormData("workExperience", id, field, e.target.value);
   };
 
   const showIndividualForm = function showIndividualForm(e) {
@@ -65,11 +40,11 @@ const DynamicFormController = function DynamicForm({ form }) {
           <button className="addWorkForm" onClick={addWorkForm}>
             +
           </button>
-          {workForms.map((workForm, index) => {
+          {formData.workExperience.map((workForm, index) => {
             return (
               <div
                 className={`form-container ${
-                  workForms.length > 1 ? "multiple" : ""
+                  formData.workExperience.length > 1 ? "multiple" : ""
                 }`}
                 key={index}
               >

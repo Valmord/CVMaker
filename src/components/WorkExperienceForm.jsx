@@ -14,11 +14,6 @@ const WorkForm = function WorkExperienceForm({
   setExperience,
   isActive,
 }) {
-  // const updateWorkExp = function updateWorkExperience(e) {
-  //   setExperience({ ...experience, [e.target.id]: e.target.value });
-  //   console.log(experience);
-  // };
-
   return (
     <form className={!isActive ? "hidden" : ""}>
       <div className="inputs" key={experience.id}>

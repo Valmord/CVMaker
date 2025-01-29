@@ -14,14 +14,23 @@ const renderHeader = function renderHeader(currentTab) {
   }
 };
 
-const FormController = function FormController() {
+const FormController = function FormController({
+  formData,
+  updateFormData,
+  addWorkForm,
+}) {
   const [currentTab, setCurrentTab] = useState("General");
 
   return (
     <aside>
       <FormTabs currentTab={currentTab} setTab={setCurrentTab} />
       <h1>{renderHeader(currentTab)}</h1>
-      <DynamicFormController form={currentTab.toLowerCase()} />
+      <DynamicFormController
+        form={currentTab.toLowerCase()}
+        formData={formData}
+        updateFormData={updateFormData}
+        addWorkForm={addWorkForm}
+      />
     </aside>
   );
 };
